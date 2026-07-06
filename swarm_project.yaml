@@ -1,0 +1,6 @@
+name: Swarm Test Project
+
+version: 1.0
+
+experiments:
+  - experiments.blink.BlinkExperiment
