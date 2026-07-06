@@ -1,6 +1,6 @@
 import asyncio
 
-class BlinkExperiment:
+class SwayExperiment:
 
     def __init__(self, robot, config=None, logger=None):
         self.robot = robot
