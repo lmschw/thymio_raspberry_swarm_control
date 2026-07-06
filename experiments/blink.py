@@ -18,7 +18,7 @@ class BlinkExperiment:
                 await asyncio.sleep(0.1)
                 continue
 
-            await self.robot.top_led(0, 0, 255)
+            await self.robot.top_led(0, 255, 0)
 
             if self.logger:
                 self.logger.log(
@@ -28,7 +28,7 @@ class BlinkExperiment:
 
             await asyncio.sleep(1)
 
-            await self.robot.top_led(255, 255, 0)
+            await self.robot.top_led(255, 0, 0)
 
             if self.logger:
                 self.logger.log(
