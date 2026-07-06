@@ -18,27 +18,27 @@ class BlinkExperiment:
                 await asyncio.sleep(0.1)
                 continue
 
-            await self.robot.top_led(0, 255, 0)
+            await self.robot.drive(100, 100)
 
             if self.logger:
                 self.logger.log(
-                    state={"led": "green"},
+                    state={"left_motor": 100, "right_motor": 100},
                     command={}
                 )
 
             await asyncio.sleep(1)
 
-            await self.robot.top_led(255, 0, 0)
+            await self.robot.drive(-100, -100)
 
             if self.logger:
                 self.logger.log(
-                    state={"led": "red"},
+                    state={"left_motor": -100, "right_motor": -100},
                     command={}
                 )
 
             await asyncio.sleep(1)
 
-        await self.robot.top_led(0, 0, 0)
+        await self.robot.drive(0, 0)
 
     async def pause(self):
         self.paused = True
