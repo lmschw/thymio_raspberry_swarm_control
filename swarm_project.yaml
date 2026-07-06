@@ -7,3 +7,5 @@ experiments:
     class: experiments.blink.BlinkExperiment
   sway:
     class: experiments.sway.SwayExperiment
+  obstacle_avoidance:
+    class: experiments.obstacle_avoidance.ObstacleAvoidanceExperiment
