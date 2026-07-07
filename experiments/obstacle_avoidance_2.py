@@ -134,7 +134,7 @@ class BestOfTwoAvoidance:
         stop_event: asyncio.Event | None = None,
     ) -> None:
         """Continuously polls the robot's prox sensors and runs step()."""
-        while stop_event is None or not stop_event.is_set():
+        while self.running:
             readings = await self.robot.proximity_horizontal()
             await self.step(readings)
             await asyncio.sleep(poll_interval)
