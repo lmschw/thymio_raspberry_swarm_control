@@ -10,4 +10,4 @@ experiments:
   obstacle_avoidance:
     class: experiments.obstacle_avoidance.ObstacleAvoidanceExperiment
   obstacle_avoidance_2:
-    class: experiments.obstacle_avoidance_2.BestOfTwoAvoidance
+    class: experiments.obstacle_avoidance_2.ObstacleAvoidanceExperiment
