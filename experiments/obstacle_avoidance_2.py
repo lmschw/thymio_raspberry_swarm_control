@@ -38,9 +38,10 @@ class AvoidanceConfig:
 class BestOfTwoAvoidance:
     """Stateful obstacle-avoidance controller. Call `step()` in a loop."""
 
-    def __init__(self, robot, config: AvoidanceConfig | None = None):
+    def __init__(self, robot, config=None, logger=None):
         self.robot = robot
         self.config = config or AvoidanceConfig()
+        self.logger = logger
         self._turning_left_steps = 0  # mirrors m_unTurningLeft
 
     def _normalize(self, readings: list[float]) -> list[float]:
