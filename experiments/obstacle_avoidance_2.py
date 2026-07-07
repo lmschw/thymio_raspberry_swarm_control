@@ -2,7 +2,7 @@ import asyncio
 import math
 
 
-class ObstacleAvoidanceExperiment:
+class BestOfTwoAvoidance:
 
     def __init__(self, robot, config=None, logger=None):
         self.robot = robot
