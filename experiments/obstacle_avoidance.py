@@ -14,7 +14,7 @@ class ObstacleAvoidanceExperiment:
 
         # Parameters
         self.delta = self.config.get("delta", 1000)
-        self.wheel_velocity = self.config.get("wheel_velocity", 100)
+        self.wheel_velocity = self.config.get("wheel_velocity", 400)
         self.turn_steps = self.config.get("turn_steps", 8)
 
         self.turning_left = 0
