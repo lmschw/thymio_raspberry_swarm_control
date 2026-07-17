@@ -2,6 +2,12 @@ name: Swarm Test Project
 
 version: 1.0
 
+tracking:
+  host: 192.168.0.10
+  hostname_map:
+    thymio-01: "RigidBody 12"
+    thymio-04: "RigidBody 13"
+
 experiments:
   blink:
     class: experiments.blink.BlinkExperiment
@@ -11,3 +17,6 @@ experiments:
     class: experiments.obstacle_avoidance.ObstacleAvoidanceExperiment
   obstacle_avoidance_2:
     class: experiments.obstacle_avoidance_2.ObstacleAvoidanceExperiment
+  optitrack_positions:
+    class: experiments.optitrack_positions.OptitrackPositionExperiment
+    tracking: true
