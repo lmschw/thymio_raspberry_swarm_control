@@ -4,6 +4,8 @@ version: 1.0
 
 tracking:
   host: 192.168.0.10
+  port: 9000
+
   hostname_map:
     thymio-01: "RigidBody 12"
     thymio-04: "RigidBody 13"

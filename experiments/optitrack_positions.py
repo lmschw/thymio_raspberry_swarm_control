@@ -34,14 +34,20 @@ class OptitrackPositionExperiment:
 
             await self.robot.drive(left, right)
 
-            pose = await self.robot.global_position()
+            pose = await self.robot.get_global_pose()
 
             if self.logger:
                 self.logger.log(
                     state={"proximity": prox, 
-                           "pose.x": pose.x,
-                           "pose.y": pose.y,
-                           "pose.z": pose.z
+                           "pose.x": pose.position[0],
+                           "pose.y": pose.position[1],
+                           "pose.z": pose.position[2],
+                           "pose.o0": pose.orientation[0],
+                           "pose.o1": pose.orientation[1],
+                           "pose.o2": pose.orientation[2],
+                           "pose.o3": pose.orientation[3],
+                           "timestamp": pose.timestamp
+
                            },
                     command={
                         "left_motor": left,
