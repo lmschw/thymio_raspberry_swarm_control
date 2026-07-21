@@ -23,6 +23,12 @@ class OptitrackPositionExperiment:
     async def run(self):
         while self.running:
 
+            if await self.robot.get_global_pose() == None:
+                print("waiting")
+                self.paused = True
+            else:
+                self.paused = False
+
             if self.paused:
                 await self.robot.stop()
                 await asyncio.sleep(0.05)
