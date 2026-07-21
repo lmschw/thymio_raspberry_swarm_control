@@ -62,7 +62,6 @@ class OptitrackPositionExperiment:
                            "pose.o1": pose.orientation[1],
                            "pose.o2": pose.orientation[2],
                            "pose.o3": pose.orientation[3],
-                           "timestamp": pose.timestamp
 
                            },
                     command={
