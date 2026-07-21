@@ -21,7 +21,17 @@ class OptitrackPositionExperiment:
                                                     delta=self.delta)
 
     async def run(self):
+        counter = 0
+
         while self.running:
+            counter += 1
+
+            if counter % 20 == 0:
+                print(
+                    "[EXPERIMENT] alive",
+                    flush=True,
+                )
+
 
             if await self.robot.get_global_pose() == None:
                 print("waiting")
