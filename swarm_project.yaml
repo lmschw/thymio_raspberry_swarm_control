@@ -3,8 +3,7 @@ name: Swarm Test Project
 version: 1.0
 
 tracking:
-  host: 192.168.0.10
-  port: 9000
+  host: 10.0.10.4
 
   hostname_map:
     thymio-01: "RigidBody 12"
