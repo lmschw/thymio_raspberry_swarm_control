@@ -22,18 +22,21 @@ class OptitrackPositionExperiment:
 
     async def run(self):
         counter = 0
+        print("Experiment started")
 
         while self.running:
             counter += 1
 
-            if counter % 20 == 0:
+            if counter % 2 == 0:
                 print(
                     "[EXPERIMENT] alive",
                     flush=True,
                 )
 
+            pose = await self.robot.get_global_pose()
+            print("in experiment pose: ", pose)
 
-            if await self.robot.get_global_pose() == None:
+            if pose == None:
                 print("waiting")
                 self.paused = True
             else:
@@ -48,9 +51,9 @@ class OptitrackPositionExperiment:
 
             left, right = self.obstacle_avoidance.step_motion(prox)
 
-            await self.robot.drive(left, right)
+            print("in experiment motors: ", left, right)
 
-            pose = await self.robot.get_global_pose()
+            await self.robot.drive(left, right)
 
             if self.logger:
                 self.logger.log(
