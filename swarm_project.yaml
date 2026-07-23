@@ -7,7 +7,7 @@ tracking:
 
   hostname_map:
     thymio-15: "RigidBody 19"
-    thymio-16: "RigidBody 15"
+    thymio-16: "RigidBody 21"
     thymio-17: "RigidBody 20"
     thymio-18: "RigidBody 13"
     thymio-19: "RigidBody 17"
