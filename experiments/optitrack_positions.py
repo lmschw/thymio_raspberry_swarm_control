@@ -21,20 +21,16 @@ class OptitrackPositionExperiment:
                                                     delta=self.delta)
 
     async def run(self):
-        counter = 0
         print("Experiment started")
 
         while self.running:
-            counter += 1
+            print(
+                "[EXPERIMENT] alive",
+                flush=True,
+            )
 
-            if counter % 2 == 0:
-                print(
-                    "[EXPERIMENT] alive",
-                    flush=True,
-                )
-
+            print("before get pose")
             pose = await self.robot.get_global_pose()
-            print("in experiment pose: ", pose)
 
             if pose == None:
                 print("waiting")
@@ -47,8 +43,10 @@ class OptitrackPositionExperiment:
                 await asyncio.sleep(0.05)
                 continue
 
+            print("before prox")
             prox = await self.robot.proximity_horizontal()
 
+            print("motor command")
             left, right = self.obstacle_avoidance.step_motion(prox)
 
             print("in experiment motors: ", left, right)
@@ -56,6 +54,7 @@ class OptitrackPositionExperiment:
             await self.robot.drive(left, right)
 
             if self.logger:
+                print("before log")
                 self.logger.log(
                     state={"proximity": prox, 
                            "pose.x": pose.position[0],
@@ -72,6 +71,7 @@ class OptitrackPositionExperiment:
                         "right_motor": right,
                     },
                 )
+                print("after log")
 
             await asyncio.sleep(0.05)
 
